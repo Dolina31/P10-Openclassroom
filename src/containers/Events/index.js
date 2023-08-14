@@ -25,7 +25,6 @@ const EventList = () => {
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
-    console.log(evtType);
   };
 
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
