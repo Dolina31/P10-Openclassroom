@@ -19,6 +19,9 @@ const Select = ({
     onChange(newValue);
     setValue(newValue);
     setCollapsed(newValue);
+    if (newValue === null) {
+      setCollapsed(true);
+    }
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
@@ -32,7 +35,12 @@ const Select = ({
             <>
               {!titleEmpty && (
                 <li onClick={() => changeValue(null)}>
-                  <input defaultChecked={!value} name="selected" type="radio" />{" "}
+                  <input
+                    checked={!value}
+                    name="selected"
+                    type="radio"
+                    onChange={() => changeValue(null)}
+                  />{" "}
                   Toutes
                 </li>
               )}
